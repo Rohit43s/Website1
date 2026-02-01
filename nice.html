@@ -1,0 +1,1153 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atma Rekha: Ultimate Indian manga platform. Read, publish, and immerse in cultural epics. English & Roman Hindi.">
+    <title>Atma Rekha - Ultimate Indian Manga Hub</title>
+    <link rel="icon" href="https://via.placeholder.com/32?text=AR" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary:   #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary:  #1a1a1a;
+            --text-primary: #f0f0f0;
+            --text-secondary:#b0b0b0;
+            --text-tertiary: #808080;
+            --border-color: #222222;
+            --hover-bg:     #222222;
+            --active-bg:    #333333;
+            --white-90:     rgba(255,255,255,0.90);
+            --white-80:     rgba(255,255,255,0.80);
+            --white-60:     rgba(255,255,255,0.60);
+            --white-40:     rgba(255,255,255,0.40);
+            --white-20:     rgba(255,255,255,0.20);
+        }
+
+        [data-theme="light"] {
+            --bg-primary:    #f9f9fc;
+            --bg-secondary:  #ffffff;
+            --bg-tertiary:   #f0f0f5;
+            --text-primary:  #1a1a1e;
+            --text-secondary:#4a4a55;
+            --text-tertiary: #71717a;
+            --border-color:  #d4d4d8;
+            --hover-bg:      #e5e5ea;
+            --active-bg:     #d1d1d9;
+            --white-90:      rgba(26,26,30,0.90);
+            --white-80:      rgba(26,26,30,0.80);
+            --white-60:      rgba(26,26,30,0.60);
+            --white-40:      rgba(26,26,30,0.40);
+            --white-20:      rgba(26,26,30,0.20);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(10,10,10,0.94);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.9rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        [data-theme="light"] header {
+            background: rgba(249,249,252,0.96);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--white-90);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        [data-theme="light"] .logo {
+            color: var(--text-primary);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 720px;
+            margin: 0 2.5rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--white-60);
+            box-shadow: 0 0 0 3px var(--white-20);
+        }
+
+        [data-theme="light"] .search-bar input {
+            background: #ffffff;
+            border-color: #c8c8d0;
+        }
+
+        [data-theme="light"] .search-bar input:focus {
+            border-color: #6b7280;
+            box-shadow: 0 0 0 3px rgba(107,114,128,0.15);
+        }
+
+        .search-bar::before {
+            content: '\f002';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 1.3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+            font-size: 1rem;
+        }
+
+        .menu-toggle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .menu-toggle:hover { color: var(--white-90); }
+
+        [data-theme="light"] .menu-toggle:hover { color: var(--text-primary); }
+
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0; right: 0;
+            background: var(--bg-secondary);
+            overflow-x: hidden;
+            transition: width 0.4s ease;
+            padding-top: 70px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        [data-theme="light"] .side-nav {
+            background: #ffffff;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .side-nav a {
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            display: block;
+            transition: all 0.15s;
+        }
+
+        .side-nav a:hover {
+            background: var(--hover-bg);
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .side-nav a {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="light"] .side-nav a:hover {
+            background: var(--hover-bg);
+            color: var(--text-primary);
+        }
+
+        .side-nav .close-btn {
+            position: absolute;
+            top: 12px; right: 28px;
+            font-size: 36px;
+            color: var(--text-tertiary);
+        }
+
+        .hero {
+            height: 80vh;
+            margin-top: 70px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.70)),
+                        url('https://images.pexels.com/photos/16747101/pexels-photo-16747101.jpeg?auto=compress&cs=tinysrgb&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+        [data-theme="light"] .hero {
+            background: linear-gradient(rgba(249,249,252,0.92), rgba(249,249,252,0.75)),
+                        url('https://images.pexels.com/photos/16747101/pexels-photo-16747101.jpeg?auto=compress&cs=tinysrgb&w=2070');
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.2rem);
+            color: var(--white-90);
+            margin-bottom: 0.6rem;
+            line-height: 1.05;
+            font-weight: 700;
+        }
+
+        [data-theme="light"] .hero h1 {
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        [data-theme="light"] .hero p {
+            color: var(--text-secondary);
+        }
+
+        .coming-soon-text {
+            font-size: 1.05rem;
+            color: var(--text-tertiary);
+            margin-top: 0.4rem;
+            font-weight: 400;
+        }
+
+        .coming-soon-text strong {
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .coming-soon-text {
+            color: #71717a;
+        }
+
+        [data-theme="light"] .coming-soon-text strong {
+            color: #1a1a1e;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--white-90);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: var(--white-80);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="light"] .btn-primary {
+            background: #1a1a1e;
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .btn-primary:hover {
+            background: #2a2a32;
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            border: 2px solid var(--white-60);
+            color: var(--white-80);
+        }
+
+        .btn-tertiary:hover {
+            background: var(--white-20);
+            border-color: var(--white-90);
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .btn-tertiary {
+            border: 2px solid #4a4a55;
+            color: #4a4a55;
+        }
+
+        [data-theme="light"] .btn-tertiary:hover {
+            background: #e5e5ea;
+            border-color: #1a1a1e;
+            color: #1a1a1e;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.25s ease;
+        }
+
+        [data-theme="light"] .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--white-40);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+        }
+
+        [data-theme="light"] .card:hover {
+            border-color: #9ca3af;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.3rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .card h3 {
+            color: var(--text-primary);
+        }
+
+        footer {
+            padding: 4rem 2rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            margin-top: auto;
+        }
+
+        [data-theme="light"] footer {
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            font-size: 1.7rem;
+            color: var(--text-tertiary);
+            transition: all 0.25s;
+        }
+
+        .social-icon:hover {
+            color: var(--white-90);
+            transform: translateY(-4px);
+        }
+
+        [data-theme="light"] .social-icon {
+            color: #71717a;
+        }
+
+        [data-theme="light"] .social-icon:hover {
+            color: #1a1a1e;
+        }
+
+        .copyright {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        [data-theme="light"] .copyright {
+            color: #71717a;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--white-20);
+            color: var(--white-90);
+            border-color: var(--white-40);
+        }
+
+        [data-theme="light"] .theme-toggle {
+            background: #ffffff;
+            border: 1px solid #d4d4d8;
+            color: #4a4a55;
+        }
+
+        [data-theme="light"] .theme-toggle:hover {
+            background: #f0f0f5;
+            color: #1a1a1e;
+            border-color: #9ca3af;
+        }
+
+        /* Coming Soon Popup */
+        #coming-soon-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background: var(--bg-secondary);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="light"] .popup-content {
+            background: #ffffff;
+            border: 1px solid #d4d4d8;
+        }
+
+        .popup-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .popup-title {
+            color: #1a1a1e;
+        }
+
+        .popup-close {
+            margin-top: 1.5rem;
+            background: var(--white-90);
+            color: #000;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        [data-theme="light"] .popup-close {
+            background: #1a1a1e;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 0.9rem 1.2rem; }
+            .search-bar { margin: 0 1rem; flex: 1; max-width: none; }
+            .logo { font-size: 1.5rem; }
+        }
+    </style>
+
+    <style>
+        /* READING PAGE STYLES */
+        .mini-header {
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(10,10,10,0.96);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        [data-theme="light"] .mini-header {
+            background: rgba(249,249,252,0.96);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .manga-thumb {
+            width: 50px;
+            height: 65px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        .manga-meta-top h1 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--white-90);
+            font-weight: 600;
+        }
+
+        [data-theme="light"] .manga-meta-top h1 {
+            color: var(--text-primary);
+        }
+
+        .stat-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .stat-btn:hover { color: var(--white-90); }
+
+        [data-theme="light"] .stat-btn {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="light"] .stat-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.8rem 0 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        [data-theme="light"] .list-header {
+            color: var(--text-tertiary);
+        }
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chapter-item {
+            display: grid;
+            grid-template-columns: 64px 1fr auto 56px;
+            align-items: center;
+            padding: 1.1rem 1.3rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="light"] .chapter-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chapter-item:hover {
+            background: var(--hover-bg);
+            border-color: var(--white-40);
+        }
+
+        [data-theme="light"] .chapter-item:hover {
+            background: #f8f9fc;
+            border-color: #9ca3af;
+        }
+
+        .ch-num {
+            font-weight: 700;
+            color: var(--white-90);
+            font-size: 1rem;
+        }
+
+        [data-theme="light"] .ch-num {
+            color: #2563eb;
+        }
+
+        .ch-name {
+            font-size: 0.95rem;
+            padding: 0 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .ch-name {
+            color: var(--text-primary);
+        }
+
+        .ch-date {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+        }
+
+        [data-theme="light"] .ch-date {
+            color: #71717a;
+        }
+
+        .comment-trigger {
+            color: var(--text-tertiary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: color 0.2s;
+        }
+
+        .comment-trigger:hover { color: var(--white-90); }
+
+        [data-theme="light"] .comment-trigger {
+            color: #71717a;
+        }
+
+        [data-theme="light"] .comment-trigger:hover {
+            color: var(--text-primary);
+        }
+
+        .comment-sheet {
+            position: fixed;
+            bottom: -100%;
+            left: 0; right: 0;
+            height: 72vh;
+            background: var(--bg-secondary);
+            z-index: 2000;
+            border-top: 3px solid var(--white-40);
+            border-radius: 20px 20px 0 0;
+            transition: bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        [data-theme="light"] .comment-sheet {
+            background: #ffffff;
+            border-top: 3px solid #d1d5db;
+        }
+
+        .comment-sheet.active { bottom: 0; }
+
+        .sheet-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.82);
+            z-index: 1900;
+        }
+
+        .comment-list {
+            flex: 1;
+            overflow-y: auto;
+            margin: 1.2rem 0;
+        }
+
+        .user-comment {
+            background: var(--bg-tertiary);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--white-40);
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .user-comment {
+            background: #f8f9fc;
+            border-left: 4px solid #d1d5db;
+        }
+
+        .user-comment b {
+            color: var(--white-90);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        [data-theme="light"] .user-comment b {
+            color: var(--text-primary);
+        }
+
+        .comment-input-area {
+            display: flex;
+            gap: 12px;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .comment-input-area input {
+            flex: 1;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 0.95rem 1.5rem;
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        [data-theme="light"] .comment-input-area input {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: var(--text-primary);
+        }
+
+        .send-btn {
+            background: var(--white-90);
+            border: none;
+            color: #000;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        [data-theme="light"] .send-btn {
+            background: #1a1a1e;
+            color: #ffffff;
+        }
+
+        .send-btn:active { transform: scale(0.94); }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rating-box {
+            background: var(--bg-secondary);
+            padding: 2.2rem 1.8rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            width: 320px;
+            max-width: 90%;
+        }
+
+        [data-theme="light"] .rating-box {
+            background: #ffffff;
+            border: 1px solid #d4d4d8;
+        }
+
+        .stars-input {
+            font-size: 2.6rem;
+            margin: 1.4rem 0;
+            color: var(--text-tertiary);
+        }
+
+        [data-theme="light"] .stars-input {
+            color: #d1d5db;
+        }
+
+        .stars-input i {
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .stars-input i.active {
+            color: var(--white-90);
+        }
+
+        [data-theme="light"] .stars-input i.active {
+            color: #f59e0b;
+        }
+
+        .fab-play {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--white-90);
+            border: none;
+            color: #000;
+            font-size: 1.4rem;
+            cursor: pointer;
+            z-index: 500;
+            transition: all 0.25s;
+        }
+
+        [data-theme="light"] .fab-play {
+            background: #1a1a1e;
+            color: #ffffff;
+        }
+
+        .fab-play:hover {
+            background: var(--white-80);
+            transform: scale(1.08);
+        }
+
+        [data-theme="light"] .fab-play:hover {
+            background: #2a2a32;
+        }
+    </style>
+</head>
+<body>
+
+<div id="index" style="display: block;">
+    <div id="sideDrawer" class="side-nav">      
+        <a href="javascript:void(0)" class="close-btn" onclick="toggleNav()">×</a>      
+        <a href="#index">Home</a>    
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">About</a>      
+        <a href="#latest">Latest Updates</a>      
+        <a href="#contact">Contact</a>      
+        <a href="#help">Help</a>      
+    </div>    
+    <header>      
+        <a href="#index" class="logo">Atma Rekha</a>  
+        <div class="search-bar">      
+            <input type="text" placeholder="Search for Indian Manga, Genres, or Authors...">      
+        </div>    
+        <div class="menu-toggle" onclick="toggleNav()">      
+            <i class="fas fa-bars"></i>      
+        </div>    
+    </header>    
+    <main>      
+        <section class="hero">      
+            <h1>Atma Rekha</h1>      
+            <p>In an age when divine light has long faded, two destined souls rise against the return of the ancient Asurs.</p>
+            <div class="coming-soon-text">
+                <strong>We are working on this</strong><br>
+                coming soon
+            </div>      
+            <div class="cta-buttons">      
+                <a href="#reading" class="btn btn-primary">Start Reading</a>      
+                <a href="#" class="btn btn-tertiary" onclick="showComingSoon()">Publish Story</a>      
+            </div>      
+        </section>  
+        <section style="padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto;">      
+            <h2 style="margin-bottom: 1.8rem; color: var(--white-90); text-align:center; font-weight:600;">Recent upload</h2>      
+            <div class="grid">      
+                <div class="card">      
+                    <img src="https://images.pexels.com/photos/8112552/pexels-photo-8112552.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Manga Cover">      
+                    <div class="card-content">      
+                        <h3>The Eternal Bond</h3>      
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top:0.4rem;">Chapter 4: The Untold Truth</p>      
+                    </div>      
+                </div>      
+            </div>      
+        </section>    
+    </main>    
+    <footer>      
+        <div class="social-links">      
+            <a href="https://www.instagram.com/amritanshorg?igsh=MXBwNnp2aWtneHN1cg==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>      
+            <a href="https://youtube.com/@amritanshorg?si=pnq7mvRA1PlzyHsB" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>      
+            <a href="https://x.com/amritansh5u" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>      
+            <a href="mailto:itsamritanshofficial@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>      
+        </div>      
+        <div class="copyright">      
+            © 2026 Atma Rekha. All rights reserved.
+        </div>      
+    </footer>  
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <!-- Coming Soon Popup -->
+    <div id="coming-soon-popup">
+        <div class="popup-content">
+            <h2 class="popup-title">Coming Soon</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">We're working hard to bring the publishing feature to you soon. Stay tuned!</p>
+            <button class="popup-close" onclick="hideComingSoon()">Close</button>
+        </div>
+    </div>
+</div>
+
+<div id="reading" style="display: none;">
+    <header class="mini-header">  
+        <i class="fa-solid fa-chevron-left" onclick="window.location.hash='#index'" style="font-size:1.4rem; cursor:pointer; color:var(--text-secondary);"></i>  
+        <img src="https://images.pexels.com/photos/8112552/pexels-photo-8112552.jpeg?auto=compress&cs=tinysrgb&w=200" class="manga-thumb">  
+        <div class="manga-meta-top">  
+            <h1>The Eternal Bond</h1>  
+            <div class="interactive-stats" style="display:flex; gap:1.2rem; margin-top:4px;">  
+                <button class="stat-btn" onclick="openRating()"><i class="fa-solid fa-star" style="color:var(--white-90);"></i> <span id="displayRating">4.9</span></button>  
+                <button class="stat-btn" id="saveBtn" onclick="toggleSave()"><i class="fa-regular fa-bookmark"></i> Save</button>  
+            </div>  
+        </div>  
+    </header>    
+    <div class="container">  
+        <div class="list-header" style="display:flex; justify-content:space-between; align-items:center; margin:1.5rem 0 1rem;">  
+            <span style="font-weight:600; font-size:0.9rem; color:var(--text-tertiary);">8 Chapters</span>  
+            <button class="stat-btn" onclick="reverseList()"><i class="fa-solid fa-sort"></i> Sort</button>  
+        </div>  
+        <div class="chapter-list" id="chapterContainer"></div>  
+    </div>    
+    <div class="sheet-overlay" id="overlay" onclick="closeComments()"></div>  
+    <div class="comment-sheet" id="commentSheet">  
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">  
+            <h3 style="margin:0; font-size:1.2rem; color:var(--white-90);" id="activeChTitle">Comments</h3>  
+            <i class="fa-solid fa-xmark" onclick="closeComments()" style="font-size:1.5rem; cursor:pointer; color:var(--text-tertiary);"></i>  
+        </div>  
+        <div class="comment-list" id="commentList"></div>  
+        <div class="comment-input-area">  
+            <input type="text" id="commentInput" placeholder="Add a comment...">  
+            <button class="send-btn" onclick="postComment()"><i class="fa-solid fa-paper-plane"></i></button>  
+        </div>  
+    </div>    
+    <div class="modal-overlay" id="ratingModal">  
+        <div class="rating-box">  
+            <h3 style="margin:0 0 1rem; color:var(--white-90);">Rate Story</h3>  
+            <div class="stars-input" id="starContainer">  
+                <i class="fa-solid fa-star" onclick="setRating(1)"></i>  
+                <i class="fa-solid fa-star" onclick="setRating(2)"></i>  
+                <i class="fa-solid fa-star" onclick="setRating(3)"></i>  
+                <i class="fa-solid fa-star" onclick="setRating(4)"></i>  
+                <i class="fa-solid fa-star" onclick="setRating(5)"></i>  
+            </div>  
+            <button onclick="submitRating()" style="background:var(--white-90); color:#000; border:none; padding:0.9rem; border-radius:8px; font-weight:600; cursor:pointer; width:100%;">SUBMIT</button>  
+        </div>  
+    </div>  
+    <button class="fab-play" onclick="continueReading()"><i class="fa-solid fa-play"></i></button>
+</div>
+
+<script>
+function toggleNav() {      
+    const nav = document.getElementById("sideDrawer");      
+    nav.style.width = (nav.style.width === "280px") ? "0" : "280px";      
+}
+
+function toggleTheme() {      
+    const html = document.documentElement;      
+    const isDark = html.dataset.theme === 'dark';      
+    html.dataset.theme = isDark ? 'light' : 'dark';      
+    document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';      
+}
+
+function showComingSoon() {
+    document.getElementById('coming-soon-popup').style.display = 'flex';
+}
+
+function hideComingSoon() {
+    document.getElementById('coming-soon-popup').style.display = 'none';
+}
+
+const titles = [
+    "Ghar Ki Chhaya",
+    "Raat Ka Pashchima",
+    "Khamoshi Ka Saaya",
+    "Aakasmik Mulaqat",
+    "Van Ka Rahasya",
+    "Jagrit Astitva",
+    "Gehraaiyon Ki Pukar",
+    "Prakaash Ke Antargat"
+];
+
+let chapters = [];  
+let currentRating = 0;  
+let activeChapter = "";  
+let comments = {}; 
+let isReversed = true;
+let isSaved = false;
+
+function initChapters() {  
+    if (chapters.length > 0) return;
+    for (let i = 1; i <= 8; i++) {  
+        chapters.push({ 
+            num: `Ch. ${i}`, 
+            title: titles[i-1],
+            date: `${i} Jan` 
+        });  
+    }  
+    chapters.reverse();  
+    render();  
+
+    const savedRating = localStorage.getItem('storyRating');  
+    if(savedRating) document.getElementById('displayRating').innerText = savedRating;  
+
+    const savedState = localStorage.getItem('isSaved');  
+    if(savedState === 'true') {  
+        isSaved = true;  
+        document.getElementById('saveBtn').innerHTML = '<i class="fa-solid fa-bookmark"></i> Saved';  
+    }  
+}  
+
+function render() {  
+    const container = document.getElementById('chapterContainer');  
+    container.innerHTML = chapters.map(ch => `  
+        <div class="chapter-item">  
+            <a href="#reader?ch=${ch.num.replace('Ch. ', '')}" style="display:contents; text-decoration:none; color:inherit;">  
+                <span class="ch-num">${ch.num}</span>  
+                <span class="ch-name">${ch.title}</span>  
+                <span class="ch-date">${ch.date}</span>  
+            </a>  
+            <div class="comment-trigger" onclick="openComments('${ch.num}')">  
+                <i class="fa-regular fa-comment-dots"></i>  
+            </div>  
+        </div>  
+    `).join('');  
+}  
+
+function reverseList() {  
+    isReversed = !isReversed;  
+    chapters.reverse();  
+    render();  
+}  
+
+function toggleSave() {  
+    isSaved = !isSaved;  
+    localStorage.setItem('isSaved', isSaved);  
+    document.getElementById('saveBtn').innerHTML = isSaved 
+        ? '<i class="fa-solid fa-bookmark"></i> Saved' 
+        : '<i class="fa-regular fa-bookmark"></i> Save';  
+}  
+
+function continueReading() {  
+    alert('Continuing to the latest chapter...');  
+    window.location.hash = '#reader?ch=8';  
+}  
+
+function openComments(ch) {  
+    activeChapter = ch;  
+    document.getElementById('activeChTitle').innerText = `Comments: ${ch}`;  
+    document.getElementById('commentSheet').classList.add('active');  
+    document.getElementById('overlay').style.display = 'block';  
+    loadComments();  
+}  
+
+function closeComments() {  
+    document.getElementById('commentSheet').classList.remove('active');  
+    document.getElementById('overlay').style.display = 'none';  
+    document.getElementById('commentInput').value = '';  
+}  
+
+function loadComments() {  
+    const list = document.getElementById('commentList');  
+    list.innerHTML = '';  
+    if (!comments[activeChapter]) comments[activeChapter] = [];  
+    comments[activeChapter].forEach(c => {  
+        const div = document.createElement('div');  
+        div.className = 'user-comment';  
+        div.innerHTML = `<b>User:</b> ${c}`;  
+        list.appendChild(div);  
+    });  
+}  
+
+function postComment() {  
+    const input = document.getElementById('commentInput');  
+    if (input.value.trim()) {  
+        if (!comments[activeChapter]) comments[activeChapter] = [];  
+        comments[activeChapter].push(input.value.trim());  
+        input.value = '';  
+        loadComments();  
+    }  
+}  
+
+function openRating() { 
+    document.getElementById('ratingModal').style.display = 'flex'; 
+}
+
+function setRating(n) { 
+    currentRating = n; 
+    const stars = document.querySelectorAll('#starContainer i'); 
+    stars.forEach((s, i) => s.classList.toggle('active', i < n)); 
+}
+
+function submitRating() { 
+    if(currentRating === 0) return alert("Select stars first!"); 
+    localStorage.setItem('storyRating', currentRating + ".0"); 
+    document.getElementById('displayRating').innerText = currentRating + ".0"; 
+    document.getElementById('ratingModal').style.display = 'none'; 
+}
+
+function handleRoute() {
+    const hash = window.location.hash.split('?')[0] || '#index';
+    const pageId = hash.replace('#', '');
+    
+    document.getElementById('index').style.display = 'none';
+    document.getElementById('reading').style.display = 'none';
+    
+    const activePage = document.getElementById(pageId);
+    if (activePage) {
+        activePage.style.display = 'block';
+        if (pageId === 'reading') initChapters();
+    }
+}
+
+document.addEventListener('click', e => {
+    const anchor = e.target.closest('a');
+    if (anchor && anchor.getAttribute('href')) {
+        const href = anchor.getAttribute('href');
+        if (href.endsWith('.html')) {
+            e.preventDefault();
+            window.location.hash = '#' + href.replace('.html', '');
+        }
+    }
+});
+
+window.addEventListener('hashchange', handleRoute);
+window.addEventListener('load', handleRoute);
+</script>
+</body>
+</html>
